@@ -1,0 +1,11 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  host: <%= ENV['MYSQL_HOSTNAME'] %>
+  username: root
+  password: <%= ENV['MYSQL_ROOT_PASSWORD'] %>
+  pool: 50
+
+development:
+  <<: *default
+  database: <%= ENV['RAILS_DB'] %>

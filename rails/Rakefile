@@ -1,0 +1,28 @@
+# Add your own tasks in files placed in lib/tasks ending in .rake,
+# for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
+
+require_relative 'config/application'
+
+Rails.application.load_tasks
+
+desc 'query products'
+task :product_lookup => :environment do
+  puts "Starting Migration"
+  records = Product.all
+  records.each do |record|
+    puts "Looking at record #{record.id}"
+    record.load
+  end
+  puts "Migration Ended"
+end
+
+desc 'query suppliers'
+task :supplier_lookup => :environment do
+  puts "Starting Migration"
+  records = Supplier.all
+  records.each do |record|
+    puts "Looking at record #{record.id}"
+    record.load
+  end
+  puts "Migration Ended"
+end

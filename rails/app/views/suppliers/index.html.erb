@@ -1,0 +1,18 @@
+<h1>Suppliers</h1>
+
+<%= link_to 'Home', root_path %>
+<%= link_to 'New Supplier', new_supplier_path %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+  </tr>
+
+  <% @suppliers.each do |supplier| %>
+    <tr>
+      <td><%= supplier.name %></td>
+      <td><%= link_to 'Show', supplier_path(supplier) %></td>
+    </tr>
+  <% end %>
+</table>
